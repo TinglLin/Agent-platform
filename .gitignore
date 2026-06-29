@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# 环境配置（含密钥，不提交）
+.env
+backend/.env
+frontend/.env
+
+# SQLite 数据文件
+backend/data/*.db
+backend/data/*.db-*
+
+# Node
+node_modules/
+frontend/dist/
+
+# IDE
+.idea/
+.vscode/
+*.swp

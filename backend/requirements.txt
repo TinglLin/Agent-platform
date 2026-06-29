@@ -1,0 +1,17 @@
+# 知汇平台 Demo 后端依赖（P0 起）
+flask>=3.0.0
+flask-cors>=4.0.0
+sqlalchemy>=2.0.0
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+
+# LangGraph 引擎（P2 起使用）
+langgraph>=1.2.0
+langgraph-checkpoint-sqlite>=2.0.0
+langchain-core>=0.3.0
+
+# DeepSeek / OpenAI 兼容 LLM
+langchain-openai>=0.3.0
+
+# 测试（可选）
+pytest>=8.0.0
