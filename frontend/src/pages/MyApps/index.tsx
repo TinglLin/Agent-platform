@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Empty, Input, Modal, Space, Tag, Typography, message } from "antd";
-import { DeleteOutlined, SendOutlined } from "@ant-design/icons";
+import { SendOutlined } from "@ant-design/icons";
 import { AppCard } from "@/components/common/AppCard";
 import { AppLayout } from "@/components/common/AppLayout";
 import { fetchUserApps, removeFromMyApps } from "@/services/workflowApi";
@@ -10,6 +11,7 @@ import type { UserAppItem } from "@/types/canvas";
 const { Text } = Typography;
 
 export default function MyAppsPage() {
+  const navigate = useNavigate();
   const [apps, setApps] = useState<UserAppItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeWorkflowId, setActiveWorkflowId] = useState<string | null>(null);
@@ -27,7 +29,6 @@ export default function MyAppsPage() {
     hydrateFromThread,
     sendMessage,
     confirmHuman,
-    reset,
   } = useChatStore();
 
   const loadApps = useCallback(() => {
@@ -124,7 +125,6 @@ export default function MyAppsPage() {
               }}
             >
               {apps.map((app) => {
-                const chatUrl = `/chat/${app.workflow_id}?name=${encodeURIComponent(app.name)}`;
                 return (
                   <div
                     key={app.workflow_id}

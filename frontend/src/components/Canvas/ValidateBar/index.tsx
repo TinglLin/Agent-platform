@@ -33,7 +33,7 @@ export function ValidateBar({ onOpenPublish, hidePublish }: ValidateBarProps) {
   const handlePublish = async () => {
     if (!isGraphValid) return;
     try {
-      const result = await publish(false);
+      await publish(false);
       message.success(`发布成功！去应用广场看看吧 😊`);
       onOpenPublish?.();
     } catch (e) {

@@ -1,4 +1,4 @@
-FROM node:20-alpine AS build
+FROM docker.m.daocloud.io/node:20-alpine AS build
 
 WORKDIR /app
 
@@ -17,7 +17,7 @@ ENV VITE_USE_MOCK=$VITE_USE_MOCK \
 
 RUN npm run build
 
-FROM nginx:1.27-alpine
+FROM docker.m.daocloud.io/nginx:1.27-alpine
 
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
